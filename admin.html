@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Admin Login – Zephyr Bar & Kitchen</title>
+<meta name="robots" content="noindex, nofollow"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--rose:#D4537E;--rose-dark:#72243E;--rose-deep:#4B1528;--rose-light:#FBEAF0;--charcoal:#2C2C2A;--soft:#888780;--off-white:#FDF8F9}
+body{font-family:'DM Sans',sans-serif;background:var(--rose-deep);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1rem}
+.login-card{background:#fff;border-radius:24px;padding:3rem 2.5rem;width:100%;max-width:420px;box-shadow:0 24px 80px rgba(0,0,0,0.35)}
+.brand{text-align:center;margin-bottom:2.5rem}
+.brand-name{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--rose-dark)}
+.brand-sub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--soft);margin-top:2px}
+.brand-tag{display:inline-block;background:var(--rose-light);color:var(--rose);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-top:1rem}
+h1{font-size:1.15rem;font-weight:500;color:var(--charcoal);margin-bottom:.4rem}
+.subtitle{font-size:13px;color:var(--soft);margin-bottom:2rem}
+.form-group{margin-bottom:1.25rem}
+label{display:block;font-size:12px;font-weight:500;color:var(--rose-dark);letter-spacing:.5px;margin-bottom:.4rem}
+input[type="password"]{width:100%;padding:12px 14px;border:1.5px solid rgba(212,83,126,0.2);border-radius:10px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--charcoal);outline:none;transition:border .3s}
+input[type="password"]:focus{border-color:var(--rose)}
+.btn-login{width:100%;background:var(--rose);color:#fff;border:none;padding:14px;border-radius:12px;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .3s,transform .2s;margin-top:.5rem}
+.btn-login:hover{background:var(--rose-dark);transform:translateY(-1px)}
+.btn-login:disabled{background:#ccc;cursor:not-allowed;transform:none}
+.error-msg{background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:.75rem 1rem;font-size:13px;color:#dc2626;margin-bottom:1rem;display:none}
+.back-link{text-align:center;margin-top:1.5rem}
+.back-link a{font-size:13px;color:var(--soft);text-decoration:none;transition:color .3s}
+.back-link a:hover{color:var(--rose)}
+</style>
+</head>
+<body>
+<div class="login-card">
+  <div class="brand">
+    <div class="brand-name">Zephyr Bar & Kitchen</div>
+    <div class="brand-sub">Kings Recreation Club</div>
+    <div class="brand-tag">Admin Portal</div>
+  </div>
+
+  <h1>Welcome back</h1>
+  <p class="subtitle">Sign in to manage bookings and settings.</p>
+
+  <div class="error-msg" id="errorMsg"></div>
+
+  <form onsubmit="handleLogin(event)">
+    <div class="form-group">
+      <label>Admin Password</label>
+      <input type="password" id="password" placeholder="Enter password" autocomplete="current-password" required/>
+    </div>
+    <button type="submit" class="btn-login" id="loginBtn">Sign In</button>
+  </form>
+
+  <div class="back-link">
+    <a href="/">← Back to website</a>
+  </div>
+</div>
+
+<script>
+// If already logged in, redirect to dashboard
+const token = localStorage.getItem('zb_admin_token');
+if (token) {
+  fetch('/api/admin/verify', { headers: { 'x-admin-token': token } })
+    .then(r => r.json())
+    .then(d => { if (d.valid) window.location.href = '/admin-dashboard.html'; });
+}
+
+async function handleLogin(e) {
+  e.preventDefault();
+  const btn = document.getElementById('loginBtn');
+  const errorEl = document.getElementById('errorMsg');
+  const password = document.getElementById('password').value;
+
+  btn.disabled = true;
+  btn.textContent = 'Signing in…';
+  errorEl.style.display = 'none';
+
+  try {
+    const res = await fetch('/api/admin/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password })
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      localStorage.setItem('zb_admin_token', data.token);
+      window.location.href = '/admin-dashboard.html';
+    } else {
+      errorEl.textContent = 'Incorrect password. Please try again.';
+      errorEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Sign In';
+    }
+  } catch {
+    errorEl.textContent = 'Connection error. Please try again.';
+    errorEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Sign In';
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Admin Dashboard – Zephyr Bar & Kitchen</title>
+<meta name="robots" content="noindex, nofollow"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--rose:#D4537E;--rose-light:#FBEAF0;--rose-mid:#ED93B1;--rose-dark:#72243E;--rose-deep:#4B1528;--gold:#BA7517;--charcoal:#2C2C2A;--mid:#5F5E5A;--soft:#888780;--off-white:#FDF8F9}
+body{font-family:'DM Sans',sans-serif;background:#f5f4f2;color:var(--charcoal);min-height:100vh}
+
+/* TOPBAR */
+.topbar{background:var(--rose-deep);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.topbar-brand{display:flex;align-items:center;gap:1rem}
+.topbar-brand-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:#fff}
+.topbar-tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.1);padding:3px 10px;border-radius:20px}
+.topbar-actions{display:flex;align-items:center;gap:1rem}
+.topbar-user{font-size:12px;color:rgba(255,255,255,0.6)}
+.btn-logout{background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);padding:7px 16px;border-radius:8px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .3s}
+.btn-logout:hover{background:rgba(255,255,255,0.2)}
+.btn-site{background:var(--rose);color:#fff;border:none;padding:7px 16px;border-radius:8px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;transition:background .3s}
+.btn-site:hover{background:var(--rose-dark)}
+
+/* LAYOUT */
+.container{max-width:1200px;margin:0 auto;padding:2rem}
+
+/* STATS */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
+.stat-card{background:#fff;border-radius:16px;padding:1.5rem;border:1px solid rgba(212,83,126,0.08)}
+.stat-icon{font-size:1.75rem;margin-bottom:.75rem}
+.stat-val{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--rose-dark);line-height:1}
+.stat-label{font-size:12px;color:var(--soft);margin-top:.25rem;letter-spacing:.5px}
+
+/* SECTION HEADER */
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--rose-dark)}
+.filter-tabs{display:flex;gap:.5rem}
+.ftab{padding:6px 14px;border-radius:20px;font-size:12px;cursor:pointer;border:1.5px solid rgba(212,83,126,0.2);background:#fff;color:var(--mid);font-family:'DM Sans',sans-serif;transition:all .2s}
+.ftab.active,.ftab:hover{background:var(--rose);color:#fff;border-color:var(--rose)}
+
+/* BOOKINGS TABLE */
+.bookings-wrap{background:#fff;border-radius:16px;border:1px solid rgba(212,83,126,0.08);overflow:hidden}
+.bookings-table{width:100%;border-collapse:collapse}
+.bookings-table th{padding:.85rem 1rem;text-align:left;font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--soft);background:#faf9f8;border-bottom:1px solid rgba(212,83,126,0.08)}
+.bookings-table td{padding:.85rem 1rem;font-size:13px;border-bottom:1px solid rgba(212,83,126,0.06);vertical-align:middle}
+.bookings-table tr:last-child td{border-bottom:none}
+.bookings-table tr:hover td{background:var(--rose-light)}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:500;letter-spacing:.5px}
+.badge-pending{background:#FEF3C7;color:#92400E}
+.badge-confirmed{background:#D1FAE5;color:#065F46}
+.badge-cancelled{background:#FEE2E2;color:#991B1B}
+.action-btn{border:none;padding:5px 10px;border-radius:6px;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+.btn-confirm{background:#D1FAE5;color:#065F46}
+.btn-confirm:hover{background:#6EE7B7}
+.btn-cancel{background:#FEE2E2;color:#991B1B}
+.btn-cancel:hover{background:#FCA5A5}
+.btn-delete{background:#f5f4f2;color:var(--soft)}
+.btn-delete:hover{background:#e5e7eb;color:var(--charcoal)}
+.actions-cell{display:flex;gap:.4rem;flex-wrap:wrap}
+.empty-state{text-align:center;padding:4rem 2rem;color:var(--soft)}
+.empty-state .empty-icon{font-size:3rem;margin-bottom:1rem;opacity:.4}
+.empty-state p{font-size:13px}
+
+/* REFRESH */
+.btn-refresh{background:var(--rose-light);color:var(--rose);border:1px solid rgba(212,83,126,0.2);padding:7px 14px;border-radius:8px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+.btn-refresh:hover{background:var(--rose);color:#fff}
+
+/* LOADING */
+.loading{text-align:center;padding:3rem;color:var(--soft);font-size:13px}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .bookings-table thead{display:none}
+  .bookings-table tr{display:block;padding:.75rem 1rem;border-bottom:1px solid rgba(212,83,126,0.08)}
+  .bookings-table td{display:flex;justify-content:space-between;padding:.3rem 0;border:none;font-size:12px}
+  .bookings-table td::before{content:attr(data-label);font-weight:500;color:var(--soft);font-size:10px;letter-spacing:.5px;text-transform:uppercase;margin-right:1rem;white-space:nowrap}
+}
+@media(max-width:640px){
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .container{padding:1rem}
+  .topbar{padding:0 1rem}
+  .filter-tabs{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-brand">
+    <div class="topbar-brand-name">Zephyr Bar</div>
+    <span class="topbar-tag">Admin</span>
+  </div>
+  <div class="topbar-actions">
+    <a href="/" class="btn-site">View Site</a>
+    <button class="btn-logout" onclick="logout()">Logout</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+  <!-- STATS -->
+  <div class="stats-grid" id="statsGrid">
+    <div class="stat-card"><div class="stat-icon">📋</div><div class="stat-val" id="statTotal">—</div><div class="stat-label">Total Bookings</div></div>
+    <div class="stat-card"><div class="stat-icon">📅</div><div class="stat-val" id="statToday">—</div><div class="stat-label">Today's Bookings</div></div>
+    <div class="stat-card"><div class="stat-icon">⏳</div><div class="stat-val" id="statPending">—</div><div class="stat-label">Pending</div></div>
+    <div class="stat-card"><div class="stat-icon">✅</div><div class="stat-val" id="statConfirmed">—</div><div class="stat-label">Confirmed</div></div>
+  </div>
+
+  <!-- BOOKINGS -->
+  <div class="section-header">
+    <div class="section-title">Table Reservations</div>
+    <div style="display:flex;gap:.5rem;align-items:center">
+      <div class="filter-tabs">
+        <button class="ftab active" onclick="filterBookings('all',this)">All</button>
+        <button class="ftab" onclick="filterBookings('pending',this)">Pending</button>
+        <button class="ftab" onclick="filterBookings('confirmed',this)">Confirmed</button>
+      </div>
+      <button class="btn-refresh" onclick="loadBookings()">↻ Refresh</button>
+    </div>
+  </div>
+
+  <div class="bookings-wrap">
+    <div id="bookingsContent" class="loading">Loading bookings…</div>
+  </div>
+
+</div>
+
+<script>
+const TOKEN = localStorage.getItem('zb_admin_token');
+let allBookings = [];
+let currentFilter = 'all';
+
+// Auth check on load
+if (!TOKEN) { window.location.href = '/admin.html'; }
+else {
+  fetch('/api/admin/verify', { headers: { 'x-admin-token': TOKEN } })
+    .then(r => r.json())
+    .then(d => { if (!d.valid) { localStorage.removeItem('zb_admin_token'); window.location.href = '/admin.html'; } else { loadBookings(); } });
+}
+
+async function loadBookings() {
+  try {
+    const res = await fetch('/api/admin/bookings', { headers: { 'x-admin-token': TOKEN } });
+    if (res.status === 401) { window.location.href = '/admin.html'; return; }
+    allBookings = await res.json();
+    updateStats();
+    renderBookings();
+  } catch {
+    document.getElementById('bookingsContent').innerHTML = '<div class="empty-state"><div class="empty-icon">⚠️</div><p>Failed to load bookings. Please refresh.</p></div>';
+  }
+}
+
+function updateStats() {
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('statTotal').textContent = allBookings.length;
+  document.getElementById('statToday').textContent = allBookings.filter(b => b.date === today).length;
+  document.getElementById('statPending').textContent = allBookings.filter(b => b.status === 'pending').length;
+  document.getElementById('statConfirmed').textContent = allBookings.filter(b => b.status === 'confirmed').length;
+}
+
+function filterBookings(filter, el) {
+  currentFilter = filter;
+  document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
+  if (el) el.classList.add('active');
+  renderBookings();
+}
+
+function renderBookings() {
+  const filtered = currentFilter === 'all' ? allBookings : allBookings.filter(b => b.status === currentFilter);
+
+  if (filtered.length === 0) {
+    document.getElementById('bookingsContent').innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">📭</div>
+        <p>${currentFilter === 'all' ? 'No bookings yet. They will appear here when guests fill the form on the website.' : 'No ' + currentFilter + ' bookings.'}</p>
+      </div>`;
+    return;
+  }
+
+  const rows = filtered.map(b => {
+    const dt = new Date(b.submittedAt);
+    const submitted = dt.toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' }) + ' ' + dt.toLocaleTimeString('en-IN', { hour:'2-digit', minute:'2-digit' });
+    const badgeClass = b.status === 'confirmed' ? 'badge-confirmed' : b.status === 'cancelled' ? 'badge-cancelled' : 'badge-pending';
+    return `
+    <tr>
+      <td data-label="Name"><strong>${esc(b.name)}</strong></td>
+      <td data-label="Phone"><a href="tel:${esc(b.phone)}" style="color:var(--rose);text-decoration:none">${esc(b.phone)}</a></td>
+      <td data-label="Date">${formatDate(b.date)}</td>
+      <td data-label="Time">${esc(b.time)}</td>
+      <td data-label="Guests">${esc(b.guests)}</td>
+      <td data-label="Note">${b.note ? esc(b.note) : '<span style="color:#ccc">—</span>'}</td>
+      <td data-label="Status"><span class="badge ${badgeClass}">${b.status}</span></td>
+      <td data-label="Submitted" style="font-size:11px;color:var(--soft)">${submitted}</td>
+      <td data-label="Actions">
+        <div class="actions-cell">
+          ${b.status !== 'confirmed' ? `<button class="action-btn btn-confirm" onclick="updateStatus('${b.id}','confirmed')">Confirm</button>` : ''}
+          ${b.status !== 'cancelled' ? `<button class="action-btn btn-cancel" onclick="updateStatus('${b.id}','cancelled')">Cancel</button>` : ''}
+          <button class="action-btn btn-delete" onclick="deleteBooking('${b.id}')">Delete</button>
+        </div>
+      </td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('bookingsContent').innerHTML = `
+    <table class="bookings-table">
+      <thead>
+        <tr>
+          <th>Name</th><th>Phone</th><th>Date</th><th>Time</th><th>Guests</th><th>Note</th><th>Status</th><th>Submitted</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+async function updateStatus(id, status) {
+  await fetch(`/api/admin/bookings/${id}/status`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json', 'x-admin-token': TOKEN },
+    body: JSON.stringify({ status })
+  });
+  loadBookings();
+}
+
+async function deleteBooking(id) {
+  if (!confirm('Delete this booking?')) return;
+  await fetch(`/api/admin/bookings/${id}`, { method: 'DELETE', headers: { 'x-admin-token': TOKEN } });
+  loadBookings();
+}
+
+async function logout() {
+  await fetch('/api/admin/logout', { method: 'POST', headers: { 'x-admin-token': TOKEN } });
+  localStorage.removeItem('zb_admin_token');
+  window.location.href = '/admin.html';
+}
+
+function esc(str) {
+  return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function formatDate(d) {
+  if (!d) return '—';
+  const [y, m, day] = d.split('-');
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${day} ${months[parseInt(m)-1]} ${y}`;
+}
+</script>
+</body>
+</html>

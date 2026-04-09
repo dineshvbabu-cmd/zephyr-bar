@@ -822,6 +822,12 @@ function bookTable() {
     alert('Please fill in your name, phone number, date and time.')
     return
   }
+  // Save booking to server (for admin dashboard)
+  fetch('/api/booking', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, phone, date, time, guests, note })
+  }).catch(() => {}) // silent fail — WhatsApp is the primary channel
   const msg = `Hello Zephyr Bar!\n\nI'd like to book a table:\n\nName: ${name}\nPhone: ${phone}\nDate: ${date}\nTime: ${time}\nGuests: ${guests}${note ? '\nNote: ' + note : ''}\n\nPlease confirm my reservation. Thank you!`
   window.open('https://wa.me/919566002111?text=' + encodeURIComponent(msg), '_blank')
 }
