@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Food Menu – Zephyr Bar &amp; Kitchen, Oragadam</title>
+<meta name="description" content="Full food menu at Zephyr Bar & Kitchen, Hiranandani Parks, Oragadam. Soups, Starters, Mains, Biriyani, Pizzas, Pastas, Classics and more."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --rose:#D4537E;--rose-light:#FBEAF0;--rose-mid:#ED93B1;--rose-dark:#72243E;--rose-deep:#4B1528;
+  --gold:#BA7517;--gold-mid:#EF9F27;--gold-light:#FAEEDA;
+  --charcoal:#2C2C2A;--mid:#5F5E5A;--soft:#888780;--off-white:#FDF8F9;
+  --green:#2d5a2d;--green-light:#e8f5e9;--green-mid:#4a8a4a;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--charcoal);overflow-x:hidden}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--rose-light)}
+::-webkit-scrollbar-thumb{background:var(--rose-mid);border-radius:3px}
+
+/* NAV */
+nav.top-nav{position:sticky;top:0;z-index:100;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:var(--rose-deep);box-shadow:0 2px 20px rgba(72,21,40,0.3)}
+.logo{display:flex;flex-direction:column;line-height:1;text-decoration:none}
+.logo-main{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:#fff;letter-spacing:1px}
+.logo-sub{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.55)}
+.nav-back{color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;display:flex;align-items:center;gap:6px;transition:color .3s}
+.nav-back:hover{color:#fff}
+.nav-links-right{display:flex;align-items:center;gap:1.5rem}
+.nav-links-right a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:12px;letter-spacing:.5px;transition:color .3s}
+.nav-links-right a:hover{color:#fff}
+.nav-bar-btn{background:var(--rose);color:#fff !important;padding:8px 18px;border-radius:20px;font-size:12px;font-weight:500}
+
+/* HERO */
+.menu-hero{position:relative;min-height:360px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(135deg,#0d2b0d,#1a3a1a,#2d5a2d)}
+.menu-hero-img{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;opacity:.25}
+.menu-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,43,13,.4) 0%,rgba(13,43,13,.75) 100%)}
+.menu-hero-content{position:relative;z-index:2;padding:3rem 1.5rem}
+.section-tag{display:inline-block;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:1rem}
+.menu-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:500;color:#fff;line-height:1.1;margin-bottom:.75rem}
+.menu-hero p{font-size:14px;color:rgba(255,255,255,0.7);max-width:520px;margin:.4rem auto}
+.menu-hero .note{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:.5px;margin-top:.5rem}
+.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.75rem}
+.btn-outline-white{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.35);color:#fff;padding:10px 22px;border-radius:30px;font-size:13px;font-weight:500;text-decoration:none;transition:background .3s}
+.btn-outline-white:hover{background:rgba(255,255,255,0.22)}
+.btn-rose{display:inline-flex;align-items:center;gap:8px;background:var(--rose);color:#fff;padding:10px 22px;border-radius:30px;font-size:13px;font-weight:500;text-decoration:none;transition:background .3s}
+.btn-rose:hover{background:var(--rose-dark)}
+
+/* FILTER TABS */
+.filter-bar{background:#fff;border-bottom:1px solid rgba(0,0,0,0.06);position:sticky;top:64px;z-index:90;padding:.65rem 5%;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.filter-bar::-webkit-scrollbar{display:none}
+.ftab{display:inline-block;font-size:12px;font-weight:500;color:var(--soft);text-decoration:none;letter-spacing:.4px;padding:6px 16px;border-radius:20px;border:1.5px solid transparent;cursor:pointer;background:transparent;font-family:'DM Sans',sans-serif;transition:all .25s;margin-right:.4rem}
+.ftab:hover{border-color:var(--green-mid);color:var(--green)}
+.ftab.active{background:var(--green);color:#fff;border-color:var(--green)}
+
+/* SECTION LAYOUT */
+.menu-body{max-width:1200px;margin:0 auto;padding:2.5rem 5%}
+.cat-section{margin-bottom:3.5rem}
+.cat-header{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.5rem;padding-bottom:.6rem;border-bottom:2px solid var(--green-light)}
+.cat-header h2{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--green)}
+.cat-header span{font-size:12px;color:var(--soft);font-weight:400}
+.sub-heading{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--green-mid);margin:1.5rem 0 .8rem;padding-bottom:.3rem;border-bottom:1px dashed var(--green-light)}
+
+/* CARD GRID */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.1rem}
+.card-grid.wide{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.card-grid.list{grid-template-columns:1fr}
+
+/* FOOD CARD */
+.food-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,0.06);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
+.food-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.1)}
+.food-card-img{height:150px;overflow:hidden;position:relative;background:var(--green-light)}
+.food-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.food-card:hover .food-card-img img{transform:scale(1.05)}
+.food-card-body{padding:.85rem 1rem;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.food-card-cat{font-size:9px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--green-mid);margin-bottom:.25rem}
+.food-card-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--charcoal);margin-bottom:.25rem;line-height:1.25}
+.food-card-desc{font-size:11.5px;color:var(--soft);line-height:1.5;margin-bottom:.6rem;flex:1}
+.food-card-footer{display:flex;align-items:center;justify-content:space-between}
+.price{font-size:13.5px;font-weight:600;color:var(--green)}
+.price-alt{font-size:11px;color:var(--soft)}
+
+/* INLINE LIST (for breads, soups etc) */
+.list-card{background:#fff;border-radius:12px;padding:.7rem 1rem;border:1px solid rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:background .2s}
+.list-card:hover{background:var(--green-light)}
+.list-card-left{display:flex;align-items:center;gap:.6rem}
+.list-card-name{font-size:13.5px;color:var(--charcoal)}
+.list-card-desc{font-size:11px;color:var(--soft)}
+.list-card-price{font-size:13px;font-weight:600;color:var(--green);white-space:nowrap}
+.list-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+@media(max-width:640px){.list-grid{grid-template-columns:1fr}}
+
+/* VEG / NON-VEG DOTS */
+.vd{display:inline-block;width:10px;height:10px;border-radius:2px;border:1.5px solid #3b6d11;position:relative;flex-shrink:0}
+.vd::after{content:'';width:5px;height:5px;border-radius:50%;background:#3b6d11;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.nvd{display:inline-block;width:10px;height:10px;border-radius:2px;border:1.5px solid #a32d2d;position:relative;flex-shrink:0}
+.nvd::after{content:'';width:5px;height:5px;border-radius:50%;background:#a32d2d;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+
+/* SOUP TABLE */
+.soup-table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.soup-table th{background:var(--green);color:#fff;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:.65rem 1rem;text-align:center;font-weight:500}
+.soup-table th:first-child{text-align:left}
+.soup-table td{padding:.6rem 1rem;font-size:13px;border-bottom:1px solid var(--green-light);text-align:center;color:var(--green);font-weight:500}
+.soup-table td:first-child{text-align:left;color:var(--charcoal);font-weight:400}
+.soup-table tr:last-child td{border-bottom:none}
+.soup-table tr:hover td{background:var(--green-light)}
+
+/* PLATTER */
+.platter-card{background:linear-gradient(135deg,var(--rose-deep),var(--rose-dark));border-radius:18px;padding:1.5rem;color:#fff;display:flex;flex-direction:column;gap:.5rem}
+.platter-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600}
+.platter-price{font-size:1.5rem;font-weight:600;color:var(--gold-mid)}
+.platter-desc{font-size:12px;color:rgba(255,255,255,0.7);line-height:1.65}
+
+/* SIZZLER CARD */
+.sizzler-card{background:#fff;border-radius:14px;border:1px solid rgba(0,0,0,0.07);padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;transition:background .2s}
+.sizzler-card:hover{background:var(--rose-light)}
+.sizzler-name{font-size:14px;font-weight:500;color:var(--charcoal);margin-bottom:.2rem}
+.sizzler-note{font-size:11px;color:var(--soft)}
+.sizzler-price{font-size:14px;font-weight:600;color:var(--rose-dark);white-space:nowrap}
+
+/* DISCLAIMER */
+.disclaimer{background:var(--rose-deep);color:rgba(255,255,255,0.6);text-align:center;padding:2.5rem 5%;font-size:12px;line-height:1.9}
+.disclaimer strong{color:rgba(255,255,255,0.9)}
+.disclaimer a{color:rgba(255,255,255,0.7);text-decoration:none}
+.disclaimer a:hover{color:#fff}
+
+/* LEGEND */
+.legend{display:flex;gap:1.5rem;align-items:center;font-size:11px;color:var(--soft);margin-bottom:1.5rem}
+.legend-item{display:flex;align-items:center;gap:.4rem}
+
+/* FADE IN */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  .card-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+  .food-card-img{height:120px}
+}
+@media(max-width:480px){
+  .card-grid{grid-template-columns:1fr 1fr}
+  .nav-links-right{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top-nav">
+  <a class="logo" href="index.html">
+    <span class="logo-main">Zephyr Bar</span>
+    <span class="logo-sub">King's Recreational Club</span>
+  </a>
+  <div class="nav-links-right">
+    <a href="index.html">Home</a>
+    <a href="menu.html">Bar Menu</a>
+    <a href="#" class="nav-bar-btn">Book a Table</a>
+  </div>
+  <a class="nav-back" href="index.html" style="display:none" id="mobileBack">&#8592; Home</a>
+</nav>
+
+<!-- HERO -->
+<div class="menu-hero">
+  <img class="menu-hero-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&q=80" alt="Zephyr Kitchen"/>
+  <div class="menu-hero-overlay"></div>
+  <div class="menu-hero-content">
+    <span class="section-tag">Food Menu</span>
+    <h1>A Kitchen Made<br/>for Every Mood</h1>
+    <p>Soups &bull; Starters &bull; Mains &bull; Biriyani &bull; Pizzas &bull; Pastas &bull; Zephyr Classics</p>
+    <p>North Indian &bull; Continental &bull; Chinese &bull; Seafood Specials</p>
+    <p class="note">Prices inclusive of applicable taxes &middot; Menu subject to change without prior notice</p>
+    <div class="hero-actions">
+      <a href="assets/food-menu.pdf" class="btn-outline-white" download>&#x2193; Download PDF Menu</a>
+      <a href="menu.html" class="btn-rose">View Bar Menu &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- FILTER TABS -->
+<div class="filter-bar" id="filterBar">
+  <button class="ftab active" onclick="showSection('all',this)">All</button>
+  <button class="ftab" onclick="showSection('soups',this)">Soups</button>
+  <button class="ftab" onclick="showSection('salads',this)">Salads</button>
+  <button class="ftab" onclick="showSection('quickbites',this)">Quick Bites</button>
+  <button class="ftab" onclick="showSection('starters-veg',this)">Starters – Veg</button>
+  <button class="ftab" onclick="showSection('starters-chicken',this)">Starters – Chicken</button>
+  <button class="ftab" onclick="showSection('starters-mutton',this)">Mutton &amp; Beef</button>
+  <button class="ftab" onclick="showSection('starters-seafood',this)">Seafood Starters</button>
+  <button class="ftab" onclick="showSection('momos',this)">Momos</button>
+  <button class="ftab" onclick="showSection('sliders',this)">Sliders &amp; Pastas</button>
+  <button class="ftab" onclick="showSection('pizzas',this)">Pizzas</button>
+  <button class="ftab" onclick="showSection('breads',this)">Indian Breads</button>
+  <button class="ftab" onclick="showSection('mains',this)">Mains &amp; Gravy</button>
+  <button class="ftab" onclick="showSection('biriyani',this)">Biriyani &amp; Chinese</button>
+  <button class="ftab" onclick="showSection('classics',this)">Zephyr Classics</button>
+  <button class="ftab" onclick="showSection('desserts',this)">Desserts</button>
+  <button class="ftab" onclick="showSection('special',this)">Special Menu</button>
+</div>
+
+<!-- MENU BODY -->
+<div class="menu-body">
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <div class="legend-item"><span class="vd"></span> Vegetarian</div>
+    <div class="legend-item"><span class="nvd"></span> Non-Vegetarian</div>
+  </div>
+
+  <!-- ===== SOUPS ===== -->
+  <div class="cat-section fade-in" data-sec="soups">
+    <div class="cat-header"><h2>Refreshments &amp; Soups</h2><span>Veg / Non-Veg / Seafood</span></div>
+    <div class="card-grid" style="margin-bottom:1.5rem">
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=500&q=75" alt="Hot & Sour Soup" loading="lazy"/></div>
+        <div class="food-card-body">
+          <div class="food-card-cat">Soup</div>
+          <div class="food-card-name">Hot &amp; Sour Soup</div>
+          <div class="food-card-desc">Classic tangy broth with vegetables or chicken</div>
+          <div class="food-card-footer"><span class="price">&#8377; 200</span><span class="price-alt">Veg &middot; N/Veg &#8377;220 &middot; Seafood &#8377;260</span></div>
+        </div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1604152135912-04a022e23696?w=500&q=75" alt="Sweet Corn Soup" loading="lazy"/></div>
+        <div class="food-card-body">
+          <div class="food-card-cat">Soup</div>
+          <div class="food-card-name">Sweet Corn Soup</div>
+          <div class="food-card-desc">Creamy sweet corn broth, comforting and mild</div>
+          <div class="food-card-footer"><span class="price">&#8377; 200</span><span class="price-alt">N/Veg &#8377;220 &middot; Seafood &#8377;260</span></div>
+        </div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1588566565463-180a5b5b8752?w=500&q=75" alt="Manchow Soup" loading="lazy"/></div>
+        <div class="food-card-body">
+          <div class="food-card-cat">Soup</div>
+          <div class="food-card-name">Manchow Soup</div>
+          <div class="food-card-desc">Indo-Chinese broth with crispy noodles on top</div>
+          <div class="food-card-footer"><span class="price">&#8377; 200</span><span class="price-alt">N/Veg &#8377;220 &middot; Seafood &#8377;260</span></div>
+        </div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?w=500&q=75" alt="Tom Yum Soup" loading="lazy"/></div>
+        <div class="food-card-body">
+          <div class="food-card-cat">Soup</div>
+          <div class="food-card-name">Tom Yum Soup</div>
+          <div class="food-card-desc">Thai lemongrass &amp; galangal hot sour soup</div>
+          <div class="food-card-footer"><span class="price">&#8377; 200</span><span class="price-alt">N/Veg &#8377;220 &middot; Seafood &#8377;260</span></div>
+        </div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=500&q=75" alt="Clear Soup" loading="lazy"/></div>
+        <div class="food-card-body">
+          <div class="food-card-cat">Soup</div>
+          <div class="food-card-name">Clear Soup</div>
+          <div class="food-card-desc">Light &amp; delicate clear broth with vegetables</div>
+          <div class="food-card-footer"><span class="price">&#8377; 200</span><span class="price-alt">N/Veg &#8377;220 &middot; Seafood &#8377;260</span></div>
+        </div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=75" alt="Cream Soup" loading="lazy"/></div>
+        <div class="food-card-body">
+          <div class="food-card-cat">Soup</div>
+          <div class="food-card-name">Cream of Soup</div>
+          <div class="food-card-desc">Rich creamy soup — ask your server for today's cream</div>
+          <div class="food-card-footer"><span class="price">&#8377; 200</span><span class="price-alt">N/Veg &#8377;220 &middot; Seafood &#8377;260</span></div>
+        </div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=500&q=75" alt="Wonton Soup" loading="lazy"/></div>
+        <div class="food-card-body">
+          <div class="food-card-cat">Soup</div>
+          <div class="food-card-name">Chinese Wonton Soup</div>
+          <div class="food-card-desc">Pork-filled wontons in a seasoned clear broth</div>
+          <div class="food-card-footer"><span class="price">&#8377; 250</span><span class="price-alt">N/Veg &#8377;290</span></div>
+        </div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=500&q=75" alt="Spinach Orange Soup" loading="lazy"/></div>
+        <div class="food-card-body">
+          <div class="food-card-cat">Soup</div>
+          <div class="food-card-name">Spinach &amp; Orange Soup</div>
+          <div class="food-card-desc">Zesty spinach &amp; orange — a signature house soup</div>
+          <div class="food-card-footer"><span class="price">&#8377; 250</span><span class="price-alt">N/Veg &#8377;280 &middot; Seafood &#8377;300</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SALADS ===== -->
+  <div class="cat-section fade-in" data-sec="salads">
+    <div class="cat-header"><h2>Salads</h2></div>
+    <div class="card-grid">
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&q=75" alt="Green Salad" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Salad</div><div class="food-card-name"><span class="vd"></span> Green Salad</div><div class="food-card-desc">Fresh garden greens with light dressing</div><div class="food-card-footer"><span class="price">&#8377; 200</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=500&q=75" alt="Caesar Salad" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Salad</div><div class="food-card-name"><span class="vd"></span> Caesar Salad Veg</div><div class="food-card-desc">Romaine, croutons, parmesan &amp; Caesar dressing</div><div class="food-card-footer"><span class="price">&#8377; 230</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500&q=75" alt="Greek Salad" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Salad</div><div class="food-card-name"><span class="vd"></span> Greek Salad</div><div class="food-card-desc">Olives, feta, cucumber, tomato &amp; oregano</div><div class="food-card-footer"><span class="price">&#8377; 250</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1490474504059-bf2db5ab2348?w=500&q=75" alt="Fruit Salad" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Salad</div><div class="food-card-name"><span class="vd"></span> Fruit Salad</div><div class="food-card-desc">Seasonal fresh fruits, chilled &amp; refreshing</div><div class="food-card-footer"><span class="price">&#8377; 250</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1598679253544-2c97992403ea?w=500&q=75" alt="Caesar Non-Veg" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Salad</div><div class="food-card-name"><span class="nvd"></span> Caesar Salad Non-Veg</div><div class="food-card-desc">Classic Caesar topped with grilled chicken</div><div class="food-card-footer"><span class="price">&#8377; 260</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=75" alt="Seafood Salad" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Salad</div><div class="food-card-name"><span class="nvd"></span> Italian Seafood Salad</div><div class="food-card-desc">Mixed seafood with Italian herbs &amp; lemon</div><div class="food-card-footer"><span class="price">&#8377; 320</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=500&q=75" alt="Jumbo Salad" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Salad</div><div class="food-card-name"><span class="nvd"></span> Jumbo Salad</div><div class="food-card-desc">A hearty full-meal salad with premium toppings</div><div class="food-card-footer"><span class="price">&#8377; 375</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== QUICK BITES ===== -->
+  <div class="cat-section fade-in" data-sec="quickbites">
+    <div class="cat-header"><h2>Quick Bites</h2></div>
+    <div class="card-grid">
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&q=75" alt="French Fries" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Quick Bite</div><div class="food-card-name"><span class="vd"></span> French Fries</div><div class="food-card-desc">Golden crispy fries with dipping sauce</div><div class="food-card-footer"><span class="price">&#8377; 230</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=500&q=75" alt="Peri Peri Fries" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Quick Bite</div><div class="food-card-name"><span class="vd"></span> Peri Peri Fries</div><div class="food-card-desc">Fries tossed in smoky peri peri seasoning</div><div class="food-card-footer"><span class="price">&#8377; 250</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500&q=75" alt="Cheese Fries" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Quick Bite</div><div class="food-card-name"><span class="vd"></span> Cheese Fries</div><div class="food-card-desc">Loaded with melted cheese — crowd favourite</div><div class="food-card-footer"><span class="price">&#8377; 250</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1552539618-7eec9b4d1796?w=500&q=75" alt="Cheese Balls" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Quick Bite</div><div class="food-card-name"><span class="vd"></span> Cheese Balls</div><div class="food-card-desc">Crispy outside, gooey cheese inside</div><div class="food-card-footer"><span class="price">&#8377; 250</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=500&q=75" alt="Onion Pakoda" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Quick Bite</div><div class="food-card-name"><span class="vd"></span> Onion Pakoda</div><div class="food-card-desc">Crispy battered onion fritters — bar classic</div><div class="food-card-footer"><span class="price">&#8377; 250</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&q=75" alt="Masala Omelette" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Quick Bite</div><div class="food-card-name"><span class="vd"></span> Masala Omelette</div><div class="food-card-desc">Spiced egg omelette with onion, chilli &amp; herbs</div><div class="food-card-footer"><span class="price">&#8377; 250</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=500&q=75" alt="Cashew" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Quick Bite</div><div class="food-card-name"><span class="vd"></span> Peri Peri Cashew</div><div class="food-card-desc">Roasted cashews in fiery peri peri spice</div><div class="food-card-footer"><span class="price">&#8377; 320</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=500&q=75" alt="Masala Peanut" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Quick Bite</div><div class="food-card-name"><span class="vd"></span> Masala Peanut</div><div class="food-card-desc">Crunchy spiced peanuts — perfect bar snack</div><div class="food-card-footer"><span class="price">&#8377; 175</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== STARTERS VEG ===== -->
+  <div class="cat-section fade-in" data-sec="starters-veg">
+    <div class="cat-header"><h2>Starters – Vegetarian</h2></div>
+    <div class="card-grid">
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=500&q=75" alt="Paneer Tikka" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Veg Starter</div><div class="food-card-name"><span class="vd"></span> Crunchy Paneer Tikka</div><div class="food-card-desc">Tandoor-grilled paneer with spiced marinade</div><div class="food-card-footer"><span class="price">&#8377; 300</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&q=75" alt="Gobi 65" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Veg Starter</div><div class="food-card-name"><span class="vd"></span> Gobi 65</div><div class="food-card-desc">Crispy deep-fried cauliflower with spicy coating</div><div class="food-card-footer"><span class="price">&#8377; 250</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1645177628172-a94c1f96debb?w=500&q=75" alt="Chilly Paneer" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Veg Starter</div><div class="food-card-name"><span class="vd"></span> Chilly Paneer</div><div class="food-card-desc">Paneer tossed with bell peppers in chilli sauce</div><div class="food-card-footer"><span class="price">&#8377; 300</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=75" alt="Gobi Manchurian" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Veg Starter</div><div class="food-card-name"><span class="vd"></span> Gobi Manchurian</div><div class="food-card-desc">Indo-Chinese cauliflower in manchurian sauce</div><div class="food-card-footer"><span class="price">&#8377; 290</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=500&q=75" alt="Spring Roll" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Veg Starter</div><div class="food-card-name"><span class="vd"></span> Spring Roll</div><div class="food-card-desc">Crispy vegetable spring rolls — S/M/L sizes</div><div class="food-card-footer"><span class="price">&#8377; 250</span><span class="price-alt">/ 290 / 350</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=500&q=75" alt="Mushroom" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Veg Starter</div><div class="food-card-name"><span class="vd"></span> Mushroom Salt &amp; Pepper</div><div class="food-card-desc">Crispy mushrooms tossed in salt &amp; pepper</div><div class="food-card-footer"><span class="price">&#8377; 290</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1587559045816-8b0a54d1a923?w=500&q=75" alt="Malai Broccoli" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Veg Starter</div><div class="food-card-name"><span class="vd"></span> Malai Broccoli</div><div class="food-card-desc">Creamy marinated broccoli from the tandoor</div><div class="food-card-footer"><span class="price">&#8377; 300</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=500&q=75" alt="Paneer Manchurian" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Veg Starter</div><div class="food-card-name"><span class="vd"></span> Paneer Manchurian</div><div class="food-card-desc">Crispy paneer balls in manchurian sauce</div><div class="food-card-footer"><span class="price">&#8377; 300</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&q=75" alt="Afghani Paneer" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Veg Starter</div><div class="food-card-name"><span class="vd"></span> Afghani Paneer Tikka</div><div class="food-card-desc">Cashew-cream marinated paneer from the tandoor</div><div class="food-card-footer"><span class="price">&#8377; 300</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?w=500&q=75" alt="Beer Battered Onion Rings" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Veg Starter</div><div class="food-card-name"><span class="vd"></span> Beer Battered Onion Rings</div><div class="food-card-desc">Golden crispy onion rings in beer batter</div><div class="food-card-footer"><span class="price">&#8377; 300</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=500&q=75" alt="Crispy Baby Corn" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Veg Starter</div><div class="food-card-name"><span class="vd"></span> Crispy Baby Corn</div><div class="food-card-desc">Tender baby corn in crunchy spiced coating</div><div class="food-card-footer"><span class="price">&#8377; 270</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1613844237701-8f3664fc2eff?w=500&q=75" alt="Cashew Pakoda" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Veg Starter</div><div class="food-card-name"><span class="vd"></span> Cashew Pakoda</div><div class="food-card-desc">Whole cashews in crispy spiced batter</div><div class="food-card-footer"><span class="price">&#8377; 320</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== STARTERS CHICKEN ===== -->
+  <div class="cat-section fade-in" data-sec="starters-chicken">
+    <div class="cat-header"><h2>Starters – Chicken</h2></div>
+    <div class="card-grid">
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=500&q=75" alt="Chicken Tikka" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Chicken Starter</div><div class="food-card-name"><span class="nvd"></span> Chicken Tikka</div><div class="food-card-desc">Classic tandoor-grilled marinated chicken</div><div class="food-card-footer"><span class="price">&#8377; 370</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=500&q=75" alt="Chicken 65" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Chicken Starter</div><div class="food-card-name"><span class="nvd"></span> Chicken 65</div><div class="food-card-desc">Deep-fried spicy chicken — South Indian classic</div><div class="food-card-footer"><span class="price">&#8377; 370</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=500&q=75" alt="Chilly Chicken" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Chicken Starter</div><div class="food-card-name"><span class="nvd"></span> Chilly Chicken</div><div class="food-card-desc">Indo-Chinese spicy chilli chicken stir-fry</div><div class="food-card-footer"><span class="price">&#8377; 370</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=500&q=75" alt="Chicken Lollypop" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Chicken Starter</div><div class="food-card-name"><span class="nvd"></span> Chicken Lollypop</div><div class="food-card-desc">Drumettes glazed in spicy tangy sauce</div><div class="food-card-footer"><span class="price">&#8377; 370</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1609167830220-7164aa360951?w=500&q=75" alt="Tangri Kebab" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Chicken Starter</div><div class="food-card-name"><span class="nvd"></span> Tangri Kebab</div><div class="food-card-desc">Whole drumstick marinated &amp; grilled in tandoor</div><div class="food-card-footer"><span class="price">&#8377; 390</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1599021419847-d8a7a6aba5b4?w=500&q=75" alt="Afghani Kebab" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Chicken Starter</div><div class="food-card-name"><span class="nvd"></span> Afghani Kebab</div><div class="food-card-desc">Creamy white marinade kebab from the tandoor</div><div class="food-card-footer"><span class="price">&#8377; 370</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=500&q=75" alt="BBQ Wings" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Chicken Starter</div><div class="food-card-name"><span class="nvd"></span> BBQ Chicken Wings</div><div class="food-card-desc">Smoky BBQ glazed chicken wings</div><div class="food-card-footer"><span class="price">&#8377; 370</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=500&q=75" alt="Zephyr Chicken 65" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Chicken Starter</div><div class="food-card-name"><span class="nvd"></span> Zephyr Chicken 65</div><div class="food-card-desc">Our signature twist on the classic Chicken 65</div><div class="food-card-footer"><span class="price">&#8377; 380</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1610057099431-d73a1c9d2f2f?w=500&q=75" alt="Tandoori Chicken" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Chicken Starter</div><div class="food-card-name"><span class="nvd"></span> Tandoori Chicken</div><div class="food-card-desc">Classic whole tandoori chicken — Half or Full</div><div class="food-card-footer"><span class="price">&#8377; 370</span><span class="price-alt">/ Full &#8377;600</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1640803226723-4e1d5c39c473?w=500&q=75" alt="Chicken Platter" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Chicken Starter</div><div class="food-card-name"><span class="nvd"></span> Chicken Platter</div><div class="food-card-desc">Assorted chicken starters — perfect for groups</div><div class="food-card-footer"><span class="price">&#8377; 1,800</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== STARTERS MUTTON & BEEF ===== -->
+  <div class="cat-section fade-in" data-sec="starters-mutton">
+    <div class="cat-header"><h2>Starters – Mutton &amp; Beef</h2></div>
+    <div class="card-grid">
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?w=500&q=75" alt="Mutton Pepper" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Mutton</div><div class="food-card-name"><span class="nvd"></span> Mutton Pepper Fry</div><div class="food-card-desc">Dry fry with whole pepper &amp; South Indian spices</div><div class="food-card-footer"><span class="price">&#8377; 500</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=500&q=75" alt="Mutton Seek Kebab" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Mutton</div><div class="food-card-name"><span class="nvd"></span> Mutton Seek Kebab</div><div class="food-card-desc">Minced mutton seekh from the tandoor</div><div class="food-card-footer"><span class="price">&#8377; 500</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500&q=75" alt="Beef Fry" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Beef</div><div class="food-card-name"><span class="nvd"></span> Malai Beef</div><div class="food-card-desc">Tender beef in creamy malai marinade</div><div class="food-card-footer"><span class="price">&#8377; 480</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1607098665874-fd193397547b?w=500&q=75" alt="Crispy Beef" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Beef</div><div class="food-card-name"><span class="nvd"></span> Crispy Chilly Beef</div><div class="food-card-desc">Crispy fried beef tossed in chilli sauce</div><div class="food-card-footer"><span class="price">&#8377; 480</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1616645258469-ec681c17f3ee?w=500&q=75" alt="Chilly Lamb" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Lamb</div><div class="food-card-name"><span class="nvd"></span> Chilly Lamb</div><div class="food-card-desc">Tender lamb tossed with green chillies &amp; peppers</div><div class="food-card-footer"><span class="price">&#8377; 500</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1624374053855-39b3b5fc1da4?w=500&q=75" alt="Mutton Chettinad" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Mutton</div><div class="food-card-name"><span class="nvd"></span> Mutton Chettinad Fry</div><div class="food-card-desc">Chettinad spices — fiery &amp; aromatic</div><div class="food-card-footer"><span class="price">&#8377; 500</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== STARTERS SEAFOOD ===== -->
+  <div class="cat-section fade-in" data-sec="starters-seafood">
+    <div class="cat-header"><h2>Starters – Seafood</h2></div>
+    <div class="card-grid">
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=500&q=75" alt="Fish Tikka" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Fish</div><div class="food-card-name"><span class="nvd"></span> Fish Tikka</div><div class="food-card-desc">Marinated fish grilled in the tandoor</div><div class="food-card-footer"><span class="price">&#8377; 420</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1535400255456-984e5a9ed00e?w=500&q=75" alt="Fish Finger" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Fish</div><div class="food-card-name"><span class="nvd"></span> Fish Finger</div><div class="food-card-desc">Crumb-coated fish fillets, golden fried</div><div class="food-card-footer"><span class="price">&#8377; 420</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=500&q=75" alt="Chilly Fish" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Fish</div><div class="food-card-name"><span class="nvd"></span> Chilly Fish</div><div class="food-card-desc">Indo-Chinese chilli-glazed crispy fish</div><div class="food-card-footer"><span class="price">&#8377; 420</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1625943553852-781ec409e9bd?w=500&q=75" alt="Prawn Tikka" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Prawn</div><div class="food-card-name"><span class="nvd"></span> Prawn Tikka</div><div class="food-card-desc">Juicy prawns in tandoori marinade</div><div class="food-card-footer"><span class="price">&#8377; 470</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&q=75" alt="Garlic Prawn" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Prawn</div><div class="food-card-name"><span class="nvd"></span> Hot Garlic Prawn</div><div class="food-card-desc">Prawns tossed in fiery garlic chilli sauce</div><div class="food-card-footer"><span class="price">&#8377; 470</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?w=500&q=75" alt="Calamari Rings" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Squid</div><div class="food-card-name"><span class="nvd"></span> Calamari Rings</div><div class="food-card-desc">Crispy golden fried squid rings with aioli</div><div class="food-card-footer"><span class="price">&#8377; 470</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1599021419847-d8a7a6aba5b4?w=500&q=75" alt="Prawn Tempura" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Prawn</div><div class="food-card-name"><span class="nvd"></span> Prawn Tempura</div><div class="food-card-desc">Japanese-style battered prawns, light &amp; crispy</div><div class="food-card-footer"><span class="price">&#8377; 490</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=500&q=75" alt="Mixed Seafood Basket" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Platter</div><div class="food-card-name"><span class="nvd"></span> Mixed Sea Food Basket</div><div class="food-card-desc">Assorted seafood starters — great for sharing</div><div class="food-card-footer"><span class="price">&#8377; 1,200</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MOMOS ===== -->
+  <div class="cat-section fade-in" data-sec="momos">
+    <div class="cat-header"><h2>Momos</h2></div>
+    <div class="card-grid">
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=500&q=75" alt="Veg Momos" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Momos</div><div class="food-card-name"><span class="vd"></span> Mix Veg Momos</div><div class="food-card-desc">Steamed dumplings with vegetable filling</div><div class="food-card-footer"><span class="price">&#8377; 270</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1609501676725-7186f017a4b7?w=500&q=75" alt="Chicken Momos" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Momos</div><div class="food-card-name"><span class="nvd"></span> Chicken Momos</div><div class="food-card-desc">Steamed dumplings with spiced chicken filling</div><div class="food-card-footer"><span class="price">&#8377; 320</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=500&q=75" alt="Fried Momos" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Momos</div><div class="food-card-name">Fried Momos</div><div class="food-card-desc">Pan-fried crispy momos — Veg or Chicken</div><div class="food-card-footer"><span class="price">&#8377; 270</span><span class="price-alt">/ Chicken &#8377;320</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1567337710282-00832b415979?w=500&q=75" alt="Tandoori Momos" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Momos</div><div class="food-card-name">Tandoori Momos</div><div class="food-card-desc">Charred in the tandoor with smoky flavour</div><div class="food-card-footer"><span class="price">&#8377; 270</span><span class="price-alt">/ Chicken &#8377;320</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=500&q=75" alt="Fish Momos" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Momos</div><div class="food-card-name"><span class="nvd"></span> Fish Momos</div><div class="food-card-desc">Delicate fish-filled steamed dumplings</div><div class="food-card-footer"><span class="price">&#8377; 350</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDERS & PASTAS ===== -->
+  <div class="cat-section fade-in" data-sec="sliders">
+    <div class="cat-header"><h2>Sliders</h2></div>
+    <div class="card-grid" style="margin-bottom:2rem">
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&q=75" alt="Veg Burger" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Slider</div><div class="food-card-name"><span class="vd"></span> Milano Veg Burger</div><div class="food-card-desc">Crispy veg patty with fresh veggies &amp; sauce</div><div class="food-card-footer"><span class="price">&#8377; 310</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1610440042657-612c34d95e9f?w=500&q=75" alt="Chicken Burger" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Slider</div><div class="food-card-name"><span class="nvd"></span> Juicy Chicken Burger</div><div class="food-card-desc">Grilled chicken patty with lettuce &amp; mayo</div><div class="food-card-footer"><span class="price">&#8377; 350</span></div></div>
+      </div>
+    </div>
+    <div class="cat-header"><h2>Pastas</h2><span>Penne / Spaghetti</span></div>
+    <div class="card-grid">
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=75" alt="Pesto Pasta" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Pasta</div><div class="food-card-name"><span class="vd"></span> Penne with Pesto</div><div class="food-card-desc">Al dente penne in basil pesto sauce</div><div class="food-card-footer"><span class="price">&#8377; 350</span><span class="price-alt">/ Spaghetti &#8377;390</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=500&q=75" alt="Cream Fungi" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Pasta</div><div class="food-card-name"><span class="vd"></span> Cream of Fungi Pasta</div><div class="food-card-desc">Rich creamy mushroom pasta</div><div class="food-card-footer"><span class="price">&#8377; 350</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=500&q=75" alt="Bolognaise" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Pasta</div><div class="food-card-name"><span class="nvd"></span> Spaghetti Bolognaise</div><div class="food-card-desc">Classic minced meat tomato sauce pasta</div><div class="food-card-footer"><span class="price">&#8377; 370</span><span class="price-alt">Beef &#8377;450</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=500&q=75" alt="Pink Sauce Pasta" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Pasta</div><div class="food-card-name"><span class="vd"></span> Pink Sauce Veg Pasta</div><div class="food-card-desc">Creamy tomato pink sauce with vegetables</div><div class="food-card-footer"><span class="price">&#8377; 350</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1548303540-541cd73f899c?w=500&q=75" alt="Chicken Pasta" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Pasta</div><div class="food-card-name"><span class="nvd"></span> Creamy Chicken Penne</div><div class="food-card-desc">Grilled chicken in rich cream sauce</div><div class="food-card-footer"><span class="price">&#8377; 370</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PIZZAS ===== -->
+  <div class="cat-section fade-in" data-sec="pizzas">
+    <div class="cat-header"><h2>Pizzas</h2></div>
+    <div class="card-grid wide">
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&q=75" alt="Margherita" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Pizza – Veg</div><div class="food-card-name"><span class="vd"></span> Pizza Margareta</div><div class="food-card-desc">Classic mozzarella &amp; tomato pizza</div><div class="food-card-footer"><span class="price">&#8377; 400</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1528137871618-79d2761e3fd5?w=500&q=75" alt="Mixed Veg Pizza" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Pizza – Veg</div><div class="food-card-name"><span class="vd"></span> Pizza Mixed Veg</div><div class="food-card-desc">Loaded with fresh seasonal vegetables</div><div class="food-card-footer"><span class="price">&#8377; 400</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=75" alt="Paneer Tikka Pizza" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Pizza – Veg</div><div class="food-card-name"><span class="vd"></span> Pizza Paneer Tikka</div><div class="food-card-desc">Tandoori paneer on pizza — Indian fusion</div><div class="food-card-footer"><span class="price">&#8377; 420</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=75" alt="BBQ Chicken Pizza" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Pizza – Non-Veg</div><div class="food-card-name"><span class="nvd"></span> Pizza Barbeque Chicken</div><div class="food-card-desc">Smoky BBQ chicken on a tomato base</div><div class="food-card-footer"><span class="price">&#8377; 450</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1601924582970-9238bcb495d9?w=500&q=75" alt="Chicken Tikka Pizza" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Pizza – Non-Veg</div><div class="food-card-name"><span class="nvd"></span> Pizza Chicken Tikka</div><div class="food-card-desc">Tandoori chicken on pizza with spiced sauce</div><div class="food-card-footer"><span class="price">&#8377; 450</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?w=500&q=75" alt="Seafood Pizza" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Pizza – Non-Veg</div><div class="food-card-name"><span class="nvd"></span> Pizza Sea Food</div><div class="food-card-desc">Shrimp, squid &amp; fish on a garlic cream base</div><div class="food-card-footer"><span class="price">&#8377; 550</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== INDIAN BREADS ===== -->
+  <div class="cat-section fade-in" data-sec="breads">
+    <div class="cat-header"><h2>Indian Breads</h2></div>
+    <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr));margin-bottom:1rem">
+      <div class="food-card">
+        <div class="food-card-img" style="height:120px"><img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&q=75" alt="Naan" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Bread</div><div class="food-card-name"><span class="vd"></span> Butter Naan</div><div class="food-card-desc">Soft leavened bread brushed with butter</div><div class="food-card-footer"><span class="price">&#8377; 90</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img" style="height:120px"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&q=75" alt="Garlic Naan" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Bread</div><div class="food-card-name"><span class="vd"></span> Garlic Naan</div><div class="food-card-desc">Soft naan loaded with garlic &amp; coriander</div><div class="food-card-footer"><span class="price">&#8377; 100</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img" style="height:120px"><img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=500&q=75" alt="Tandoori Roti" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Bread</div><div class="food-card-name"><span class="vd"></span> Tandoori Roti</div><div class="food-card-desc">Whole wheat roti from the tandoor</div><div class="food-card-footer"><span class="price">&#8377; 80</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img" style="height:120px"><img src="https://images.unsplash.com/photo-1630383060421-cb20d0e0649d?w=500&q=75" alt="Paratha" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Bread</div><div class="food-card-name"><span class="vd"></span> Lachcha Parantha</div><div class="food-card-desc">Multi-layered flaky paratha</div><div class="food-card-footer"><span class="price">&#8377; 90</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img" style="height:120px"><img src="https://images.unsplash.com/photo-1567337710282-00832b415979?w=500&q=75" alt="Kulcha" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Bread</div><div class="food-card-name"><span class="vd"></span> Stuffed Kulcha Masala</div><div class="food-card-desc">Kulcha stuffed with spiced potato &amp; onion</div><div class="food-card-footer"><span class="price">&#8377; 120</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img" style="height:120px"><img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=500&q=75" alt="Egg Paratha" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Bread</div><div class="food-card-name"><span class="nvd"></span> Egg Parantha</div><div class="food-card-desc">Flaky paratha with egg filling</div><div class="food-card-footer"><span class="price">&#8377; 120</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MAINS & GRAVY ===== -->
+  <div class="cat-section fade-in" data-sec="mains">
+    <div class="cat-header"><h2>Mains &amp; Gravy</h2><span>Indian &amp; Chinese</span></div>
+    <div class="sub-heading">Vegetarian Gravy</div>
+    <div class="card-grid">
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=500&q=75" alt="Dal Makhani" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Veg Main</div><div class="food-card-name"><span class="vd"></span> Dal Makhani</div><div class="food-card-desc">Slow-cooked black lentils in buttery tomato sauce</div><div class="food-card-footer"><span class="price">&#8377; 300</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=500&q=75" alt="Palak Paneer" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Veg Main</div><div class="food-card-name"><span class="vd"></span> Palak Paneer</div><div class="food-card-desc">Paneer cubes in creamy spinach gravy</div><div class="food-card-footer"><span class="price">&#8377; 350</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=500&q=75" alt="Butter Paneer" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Veg Main</div><div class="food-card-name"><span class="vd"></span> Butter Paneer Masala</div><div class="food-card-desc">Rich tomato-butter gravy with paneer</div><div class="food-card-footer"><span class="price">&#8377; 330</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=500&q=75" alt="Kadai Paneer" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Veg Main</div><div class="food-card-name"><span class="vd"></span> Kadai Paneer</div><div class="food-card-desc">Paneer with bell peppers in kadai masala</div><div class="food-card-footer"><span class="price">&#8377; 330</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?w=500&q=75" alt="Malai Kofta" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Veg Main</div><div class="food-card-name"><span class="vd"></span> Malai Kofta</div><div class="food-card-desc">Paneer &amp; potato balls in rich cream gravy</div><div class="food-card-footer"><span class="price">&#8377; 330</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=500&q=75" alt="Dal Tadka" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Veg Main</div><div class="food-card-name"><span class="vd"></span> Dal Tadka</div><div class="food-card-desc">Yellow lentils tempered with cumin &amp; garlic</div><div class="food-card-footer"><span class="price">&#8377; 290</span></div></div>
+      </div>
+    </div>
+    <div class="sub-heading">Chicken Curry</div>
+    <div class="card-grid">
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=500&q=75" alt="Butter Chicken" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Chicken Main</div><div class="food-card-name"><span class="nvd"></span> Butter Chicken Masala</div><div class="food-card-desc">Iconic mildly spiced tomato-butter chicken curry</div><div class="food-card-footer"><span class="price">&#8377; 370</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&q=75" alt="Chettinad Chicken" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Chicken Main</div><div class="food-card-name"><span class="nvd"></span> Chicken Chettinad Masala</div><div class="food-card-desc">Fiery South Indian chettinad spiced curry</div><div class="food-card-footer"><span class="price">&#8377; 370</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1545247181-516773cae754?w=500&q=75" alt="Palak Chicken" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Chicken Main</div><div class="food-card-name"><span class="nvd"></span> Palak Chicken</div><div class="food-card-desc">Chicken in rich spinach &amp; spice gravy</div><div class="food-card-footer"><span class="price">&#8377; 400</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1548365328-8c6db3220e4c?w=500&q=75" alt="Mutton Curry" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Mutton Main</div><div class="food-card-name"><span class="nvd"></span> Mutton Rogan Josh</div><div class="food-card-desc">Kashmiri slow-cooked mutton in aromatic spices</div><div class="food-card-footer"><span class="price">&#8377; 430</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1617692855027-33b14f061079?w=500&q=75" alt="Fish Curry" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Seafood Main</div><div class="food-card-name"><span class="nvd"></span> Malabar Fish Curry</div><div class="food-card-desc">Kerala-style coconut fish curry</div><div class="food-card-footer"><span class="price">&#8377; 420</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=500&q=75" alt="Prawn Curry" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Seafood Main</div><div class="food-card-name"><span class="nvd"></span> Goan Prawn Curry</div><div class="food-card-desc">Tangy Goan-style coconut prawn curry</div><div class="food-card-footer"><span class="price">&#8377; 480</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== BIRIYANI & CHINESE ===== -->
+  <div class="cat-section fade-in" data-sec="biriyani">
+    <div class="cat-header"><h2>Biriyani &amp; Rice</h2></div>
+    <div class="card-grid">
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500&q=75" alt="Chicken Biriyani" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Biriyani</div><div class="food-card-name"><span class="nvd"></span> Dum Biriyani Chicken</div><div class="food-card-desc">Fragrant dum-cooked chicken biriyani</div><div class="food-card-footer"><span class="price">&#8377; 340</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500&q=75" alt="Mutton Biriyani" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Biriyani</div><div class="food-card-name"><span class="nvd"></span> Dum Biriyani Mutton/Prawn</div><div class="food-card-desc">Slow-cooked mutton or prawn biriyani</div><div class="food-card-footer"><span class="price">&#8377; 390</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=500&q=75" alt="Veg Biriyani" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Biriyani</div><div class="food-card-name"><span class="vd"></span> Vegetable Biriyani</div><div class="food-card-desc">Fragrant rice with seasonal vegetables &amp; spices</div><div class="food-card-footer"><span class="price">&#8377; 300</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1516714435131-44d6b64dc6a2?w=500&q=75" alt="Fried Rice" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Chinese Rice</div><div class="food-card-name"><span class="nvd"></span> Chicken Fried Rice</div><div class="food-card-desc">Wok-tossed rice with chicken &amp; vegetables</div><div class="food-card-footer"><span class="price">&#8377; 350</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=500&q=75" alt="Seafood Fried Rice" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Chinese Rice</div><div class="food-card-name"><span class="nvd"></span> Sea Food Fried Rice</div><div class="food-card-desc">Wok-fried rice loaded with mixed seafood</div><div class="food-card-footer"><span class="price">&#8377; 430</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=500&q=75" alt="Noodles" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Chinese Noodles</div><div class="food-card-name"><span class="nvd"></span> Chicken Noodles</div><div class="food-card-desc">Stir-fried Hakka noodles with chicken</div><div class="food-card-footer"><span class="price">&#8377; 350</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=500&q=75" alt="Schezwan" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Chinese</div><div class="food-card-name">Schezwan Noodles Chicken</div><div class="food-card-desc">Fiery schezwan-sauce tossed noodles</div><div class="food-card-footer"><span class="price">&#8377; 360</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&q=75" alt="Asian Continental" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Asian</div><div class="food-card-name">Thai Red / Green Curry</div><div class="food-card-desc">Aromatic Thai curry — Veg &#8377;420 / Non-Veg &#8377;450</div><div class="food-card-footer"><span class="price">&#8377; 420</span><span class="price-alt">+</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ZEPHYR CLASSICS ===== -->
+  <div class="cat-section fade-in" data-sec="classics">
+    <div class="cat-header"><h2>Zephyr Classics</h2><span>Chef's Specials — &#8377; 585 each</span></div>
+    <div class="card-grid wide">
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=500&q=75" alt="Stuffed Chicken" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Zephyr Classic</div><div class="food-card-name"><span class="nvd"></span> Stuffed Chicken</div><div class="food-card-desc">Whole chicken breast stuffed with herbs &amp; cheese</div><div class="food-card-footer"><span class="price">&#8377; 585</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500&q=75" alt="Lamb Chops" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Zephyr Classic</div><div class="food-card-name"><span class="nvd"></span> Grilled Lamb Chops</div><div class="food-card-desc">With green pepper sauce — signature dish</div><div class="food-card-footer"><span class="price">&#8377; 585</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=500&q=75" alt="Grilled Fish" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Zephyr Classic</div><div class="food-card-name"><span class="nvd"></span> Herb &amp; Chilly Grilled Fish</div><div class="food-card-desc">Whole fish grilled with herbs &amp; chilli crust</div><div class="food-card-footer"><span class="price">&#8377; 585</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=500&q=75" alt="Sea Food Sizzler" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Zephyr Classic</div><div class="food-card-name"><span class="nvd"></span> Sea Food Sizzler</div><div class="food-card-desc">Mixed seafood on a sizzling iron plate</div><div class="food-card-footer"><span class="price">&#8377; 585</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=500&q=75" alt="Chicken Tikka Sizzler" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Zephyr Classic</div><div class="food-card-name"><span class="nvd"></span> Chicken Tikka Sizzler</div><div class="food-card-desc">Sizzling tikka with jeera rice &amp; makhani gravy</div><div class="food-card-footer"><span class="price">&#8377; 585</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&q=75" alt="Fish Steak" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Zephyr Classic</div><div class="food-card-name"><span class="nvd"></span> Cajun Fish Steak</div><div class="food-card-desc">With herb rice &amp; lemon butter sauce</div><div class="food-card-footer"><span class="price">&#8377; 585</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1604908177522-bc8fdb755f1b?w=500&q=75" alt="Chicken Kiev" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Zephyr Classic</div><div class="food-card-name"><span class="nvd"></span> Breaded Chicken Kiev</div><div class="food-card-desc">With herb rice &amp; mushroom sauce</div><div class="food-card-footer"><span class="price">&#8377; 585</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1535400255456-984e5a9ed00e?w=500&q=75" alt="Fish and Chips" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Zephyr Classic</div><div class="food-card-name"><span class="nvd"></span> Beer Battered Fish &amp; Chips</div><div class="food-card-desc">Classic British pub favourite with salad</div><div class="food-card-footer"><span class="price">&#8377; 585</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DESSERTS ===== -->
+  <div class="cat-section fade-in" data-sec="desserts">
+    <div class="cat-header"><h2>Desserts</h2></div>
+    <div class="card-grid">
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1516559228935-0b788b7f6c5c?w=500&q=75" alt="Gulab Jamun" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Dessert</div><div class="food-card-name"><span class="vd"></span> Gulab Jamun</div><div class="food-card-desc">Soft milk-solid balls soaked in rose sugar syrup</div><div class="food-card-footer"><span class="price">&#8377; 150</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1609501676725-7186f017a4b7?w=500&q=75" alt="Carrot Halwa" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Dessert</div><div class="food-card-name"><span class="vd"></span> Carrot Halwa</div><div class="food-card-desc">Slow-cooked grated carrot with ghee &amp; nuts</div><div class="food-card-footer"><span class="price">&#8377; 150</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=500&q=75" alt="Ice Cream" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Dessert</div><div class="food-card-name"><span class="vd"></span> Vanilla Ice Cream</div><div class="food-card-desc">Classic vanilla ice cream, smooth &amp; creamy</div><div class="food-card-footer"><span class="price">&#8377; 150</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=500&q=75" alt="Gulab Jamun Ice Cream" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Dessert</div><div class="food-card-name"><span class="vd"></span> Gulab Jamun with Ice Cream</div><div class="food-card-desc">Best of Indian &amp; Western desserts combined</div><div class="food-card-footer"><span class="price">&#8377; 200</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500&q=75" alt="Sizzling Brownie" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Dessert</div><div class="food-card-name"><span class="vd"></span> Sizzling Brownie</div><div class="food-card-desc">Warm chocolate brownie with vanilla ice cream</div><div class="food-card-footer"><span class="price">&#8377; 250</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SPECIAL MENU ===== -->
+  <div class="cat-section fade-in" data-sec="special">
+    <div class="cat-header"><h2>Special Menu</h2><span>Premium &amp; Signature Dishes</span></div>
+
+    <div class="sub-heading">Continental &amp; Tandoori — &#8377; 850+</div>
+    <div class="card-grid wide">
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=500&q=75" alt="Grilled Lobster" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Special – Continental</div><div class="food-card-name"><span class="nvd"></span> Grilled Lobster</div><div class="food-card-desc">Whole lobster grilled, served with mash potato &amp; steam veg</div><div class="food-card-footer"><span class="price">&#8377; 850</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1559949914-6fb0da784f73?w=500&q=75" alt="Grilled Tiger Prawn" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Special – Continental</div><div class="food-card-name"><span class="nvd"></span> Grilled Tiger Prawn</div><div class="food-card-desc">Tiger prawns grilled with veg &amp; herb rice</div><div class="food-card-footer"><span class="price">&#8377; 850</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=500&q=75" alt="Grilled Pomfret" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Special – Continental</div><div class="food-card-name"><span class="nvd"></span> Grilled Pomfret</div><div class="food-card-desc">Whole pomfret grilled with herbs &amp; spices</div><div class="food-card-footer"><span class="price">&#8377; 850</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1625943553852-781ec409e9bd?w=500&q=75" alt="Tandoori Lobster" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Special – Tandoori</div><div class="food-card-name"><span class="nvd"></span> Tandoori Lobster</div><div class="food-card-desc">Whole lobster marinated &amp; charred in tandoor</div><div class="food-card-footer"><span class="price">&#8377; 1,200</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1562802378-063ec186a863?w=500&q=75" alt="Masala Crab" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Special – Indian</div><div class="food-card-name"><span class="nvd"></span> Crab Pepper Masala</div><div class="food-card-desc">Whole crab in aromatic South Indian pepper masala</div><div class="food-card-footer"><span class="price">&#8377; 750</span></div></div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-img"><img src="https://images.unsplash.com/photo-1607098665874-fd193397547b?w=500&q=75" alt="Pork" loading="lazy"/></div>
+        <div class="food-card-body"><div class="food-card-cat">Special – Pork</div><div class="food-card-name"><span class="nvd"></span> Pork Masala / Fry</div><div class="food-card-desc">Indian-style pork masala or peppery fry</div><div class="food-card-footer"><span class="price">&#8377; 650</span></div></div>
+      </div>
+    </div>
+
+    <div class="sub-heading" style="margin-top:2rem">Seafood Platters</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem">
+      <div class="platter-card">
+        <div class="platter-name">Tandoori Seafood Platter</div>
+        <div class="platter-price">&#8377; 3,500</div>
+        <div class="platter-desc">Tiger Prawn 4 pcs &bull; Fish Tikka 4 pcs &bull; Hariyali Squid 6 pcs &bull; Hariyali Fish 4 pcs &bull; Tandoori Prawn 4 pcs &bull; Tandoori Crab 2 pcs &bull; Tandoori Pomfret 1 pc</div>
+      </div>
+      <div class="platter-card">
+        <div class="platter-name">Chinese Seafood Platter</div>
+        <div class="platter-price">&#8377; 2,500</div>
+        <div class="platter-desc">Chilly Fish &frac12; &bull; Hot Garlic Fish &frac12; &bull; Thai Basil Prawn &bull; Salt &amp; Pepper Prawn &frac12; &bull; Chilli Squid &frac12; &bull; Fish Finger 4 pcs &bull; Hot Garlic Squid &frac12;</div>
+      </div>
+    </div>
+
+    <div class="sub-heading">Special Sizzlers</div>
+    <div style="display:flex;flex-direction:column;gap:.6rem">
+      <div class="sizzler-card"><div><div class="sizzler-name"><span class="nvd"></span> Chicken Tikka Sizzler</div><div class="sizzler-note">Jeera Rice, Jeera Aloo, Cream Makhani Gravy</div></div><div class="sizzler-price">&#8377; 650</div></div>
+      <div class="sizzler-card"><div><div class="sizzler-name"><span class="nvd"></span> Malai Mirchi Machi Sizzler</div><div class="sizzler-note">Herb Rice, Jeera Aloo, Kasundi Gravy</div></div><div class="sizzler-price">&#8377; 650</div></div>
+      <div class="sizzler-card"><div><div class="sizzler-name"><span class="vd"></span> Cottage Cheese Steak Sizzler (Chinese)</div><div class="sizzler-note">Pepper Sauce Glazed, Sweet &amp; Sour Veg Stir Fried Noodles</div></div><div class="sizzler-price">&#8377; 650</div></div>
+    </div>
+  </div>
+
+</div><!-- end menu-body -->
+
+<div class="disclaimer">
+  <strong>Kings Recreation Club &middot; Zephyr Bar &amp; Kitchen</strong><br/>
+  No. 15A &amp; 15B, Hiranandani Parks, Thriveni Nagar, Senthamangalam Village, Oragadam, Chengalpattu &ndash; 603204<br/>
+  Phone: <a href="tel:04447915028">044 47915028</a> &nbsp;&middot;&nbsp;
+  WhatsApp: <a href="https://wa.me/919566002111">+91 95660 02111 (BA. Suresh)</a> &nbsp;&middot;&nbsp; @zephyr.off<br/><br/>
+  <span style="font-size:10px">&#9632; Green = Vegetarian &nbsp;&nbsp; &#9632; Red = Non-Vegetarian &nbsp;&nbsp; All prices include GST &nbsp;&nbsp; Menu subject to change without notice</span>
+</div>
+
+<script>
+// Section filter
+function showSection(sec, btn) {
+  document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'))
+  btn.classList.add('active')
+  document.querySelectorAll('.cat-section').forEach(s => {
+    s.style.display = (sec === 'all' || s.dataset.sec === sec) ? 'block' : 'none'
+  })
+  if (sec !== 'all') {
+    const el = document.querySelector('[data-sec="'+sec+'"]')
+    if (el) setTimeout(() => el.scrollIntoView({behavior:'smooth', block:'start'}), 50)
+  }
+}
+
+// Fade-in on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') })
+}, {threshold: 0.08})
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el))
+
+// Mobile back button
+if (window.innerWidth < 480) {
+  document.getElementById('mobileBack').style.display = 'flex'
+}
+</script>
+</body>
+</html>

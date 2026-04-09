@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bar Menu – Zephyr Bar &amp; Kitchen, Oragadam</title>
+<meta name="description" content="Full bar menu at Zephyr Bar & Kitchen, Hiranandani Parks, Oragadam. Cocktails, mocktails, domestic & imported beer, whisky, vodka, rum, gin, brandy and more."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --rose:#D4537E;--rose-light:#FBEAF0;--rose-mid:#ED93B1;--rose-dark:#72243E;--rose-deep:#4B1528;
+  --gold:#BA7517;--gold-light:#FAEEDA;--gold-mid:#EF9F27;
+  --charcoal:#2C2C2A;--mid:#5F5E5A;--soft:#888780;--off-white:#FDF8F9;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--charcoal);overflow-x:hidden}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--rose-light)}
+::-webkit-scrollbar-thumb{background:var(--rose-mid);border-radius:3px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:var(--rose-deep);box-shadow:0 2px 20px rgba(72,21,40,0.3)}
+.logo{display:flex;flex-direction:column;line-height:1;text-decoration:none}
+.logo-main{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:#fff;letter-spacing:1px}
+.logo-sub{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.6)}
+.nav-back{color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;display:flex;align-items:center;gap:6px;transition:color .3s}
+.nav-back:hover{color:#fff}
+
+/* HERO BAR */
+.menu-hero{background:linear-gradient(135deg,var(--rose-deep),var(--rose-dark));padding:4rem 5%;text-align:center}
+.menu-hero .section-tag{display:inline-block;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.85);font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:1rem}
+.menu-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:500;color:#fff;line-height:1.1;margin-bottom:.75rem}
+.menu-hero p{font-size:14px;color:rgba(255,255,255,0.7);max-width:480px;margin:0 auto 1.5rem}
+.menu-hero .note{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:.5px}
+
+/* CATEGORY NAV */
+.cat-nav{background:#fff;border-bottom:1px solid rgba(212,83,126,0.1);position:sticky;top:64px;z-index:90;padding:.75rem 5%;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.cat-nav::-webkit-scrollbar{display:none}
+.cat-nav a{display:inline-block;font-size:12px;font-weight:500;color:var(--soft);text-decoration:none;letter-spacing:.5px;padding:6px 14px;border-radius:20px;transition:all .3s;margin-right:.5rem}
+.cat-nav a:hover,.cat-nav a.active{background:var(--rose-light);color:var(--rose)}
+
+/* SECTIONS */
+.menu-body{max-width:1100px;margin:0 auto;padding:3rem 5%}
+.cat-section{margin-bottom:3.5rem}
+.cat-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--rose-dark);border-bottom:2px solid var(--rose-light);padding-bottom:.5rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
+.cat-title span{font-size:1rem;font-weight:400;font-family:'DM Sans',sans-serif;color:var(--soft)}
+.sub-title{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--rose);margin:1.5rem 0 .75rem}
+
+/* MENU TABLE */
+.menu-table{width:100%;border-collapse:collapse}
+.menu-table tr{border-bottom:1px solid rgba(212,83,126,0.06);transition:background .2s}
+.menu-table tr:hover{background:var(--rose-light)}
+.menu-table td{padding:.65rem .5rem;font-size:14px;color:var(--charcoal)}
+.menu-table td:first-child{padding-left:0;font-weight:400}
+.menu-table td:last-child{text-align:right;padding-right:0;font-weight:500;color:var(--rose-dark);white-space:nowrap}
+.menu-table td.price-pair{text-align:right;padding-right:0;white-space:nowrap}
+.price-label{font-size:10px;color:var(--soft);letter-spacing:1px;display:block}
+
+/* 2-COL GRID */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:0 3rem}
+@media(max-width:640px){.two-col{grid-template-columns:1fr}}
+
+/* PITCHERS */
+.pitcher-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+.pitcher-card{background:#fff;border:1px solid rgba(212,83,126,0.1);border-radius:14px;padding:1.1rem 1.25rem;transition:transform .3s,box-shadow .3s}
+.pitcher-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(212,83,126,0.12)}
+.pitcher-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--charcoal);margin-bottom:.25rem}
+.pitcher-price{font-size:1.15rem;font-weight:500;color:var(--rose-dark)}
+
+/* DISCLAIMER */
+.disclaimer{background:var(--rose-deep);color:rgba(255,255,255,0.6);text-align:center;padding:2rem 5%;font-size:12px;line-height:1.8}
+.disclaimer strong{color:rgba(255,255,255,0.85)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">
+    <span class="logo-main">Zephyr Bar</span>
+    <span class="logo-sub">King's Recreational Club</span>
+  </a>
+  <a class="nav-back" href="index.html">&#8592; Back to Home</a>
+</nav>
+
+<div class="menu-hero">
+  <span class="section-tag">Bar Menu</span>
+  <h1>Drink. Savour. Celebrate.</h1>
+  <p>From classic cocktails to premium single malts &mdash; our bar is stocked for every mood.</p>
+  <p class="note">All prices are per serving &middot; Taxes applicable as per TASMAC norms &middot; Menu subject to availability</p>
+</div>
+
+<nav class="cat-nav" id="catNav">
+  <a href="#cocktails" class="active">Cocktails</a>
+  <a href="#mocktails">Mocktails</a>
+  <a href="#pitchers">Pitchers</a>
+  <a href="#shooters">Shooters</a>
+  <a href="#beer-domestic">Beer</a>
+  <a href="#whisky">Whisky</a>
+  <a href="#brandy">Brandy</a>
+  <a href="#vodka">Vodka</a>
+  <a href="#gin">Gin</a>
+  <a href="#rum">Rum</a>
+  <a href="#wine">Wine</a>
+  <a href="#mixers">Mixers</a>
+  <a href="#tobacco">Tobacco</a>
+</nav>
+
+<div class="menu-body">
+
+  <!-- COCKTAILS -->
+  <div class="cat-section" id="cocktails">
+    <div class="cat-title">Cocktails <span>— handcrafted by our bar team</span></div>
+    <div class="two-col">
+      <div>
+        <table class="menu-table">
+          <tr><td>Classic Mojito</td><td>&#8377; 449</td></tr>
+          <tr><td>Water Melon Mojito</td><td>&#8377; 449</td></tr>
+          <tr><td>Grape Mojito</td><td>&#8377; 449</td></tr>
+          <tr><td>Pineapple Mojito</td><td>&#8377; 449</td></tr>
+          <tr><td>Cosmopolitan</td><td>&#8377; 449</td></tr>
+          <tr><td>Passionate Mango</td><td>&#8377; 449</td></tr>
+          <tr><td>Gin Fizz</td><td>&#8377; 449</td></tr>
+          <tr><td>Pina Colada</td><td>&#8377; 449</td></tr>
+          <tr><td>Bloody Mary</td><td>&#8377; 499</td></tr>
+          <tr><td>Sex on the Beach</td><td>&#8377; 499</td></tr>
+          <tr><td>Sexy Lady</td><td>&#8377; 529</td></tr>
+        </table>
+      </div>
+      <div>
+        <table class="menu-table">
+          <tr><td>Classic Dry Martini</td><td>&#8377; 549</td></tr>
+          <tr><td>Watermelon Martini</td><td>&#8377; 549</td></tr>
+          <tr><td>Raw Mango Martini</td><td>&#8377; 549</td></tr>
+          <tr><td>Lychee Martini</td><td>&#8377; 549</td></tr>
+          <tr><td>Classic Margarita</td><td>&#8377; 549</td></tr>
+          <tr><td>Whisky Sour</td><td>&#8377; 549</td></tr>
+          <tr><td>Screw Driver</td><td>&#8377; 549</td></tr>
+          <tr><td>Bar Man Special Cocktail</td><td>&#8377; 999</td></tr>
+          <tr><td>Long Island Ice Tea</td><td>&#8377; 999</td></tr>
+          <tr><td>Brain Damage</td><td>&#8377; 999</td></tr>
+          <tr><td>Bull Frog</td><td>&#8377; 999</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOCKTAILS -->
+  <div class="cat-section" id="mocktails">
+    <div class="cat-title">Mocktails <span>— fresh &amp; alcohol-free</span></div>
+    <div class="two-col">
+      <div>
+        <table class="menu-table">
+          <tr><td>Fruit Punch</td><td>&#8377; 300</td></tr>
+          <tr><td>Blue Angel</td><td>&#8377; 250</td></tr>
+          <tr><td>Milk Shake</td><td>&#8377; 250</td></tr>
+          <tr><td>Chocolate Milk Shake</td><td>&#8377; 250</td></tr>
+          <tr><td>Strawberry Cooler</td><td>&#8377; 250</td></tr>
+        </table>
+      </div>
+      <div>
+        <table class="menu-table">
+          <tr><td>Watermelon Mint</td><td>&#8377; 250</td></tr>
+          <tr><td>Pina Colada</td><td>&#8377; 250</td></tr>
+          <tr><td>Lemon Cooler</td><td>&#8377; 250</td></tr>
+          <tr><td>Virgin Mojito</td><td>&#8377; 250</td></tr>
+          <tr><td>Orange Sun Rise</td><td>&#8377; 250</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- COCKTAIL PITCHERS -->
+  <div class="cat-section" id="pitchers">
+    <div class="cat-title">Cocktail Pitchers <span>— perfect for groups</span></div>
+    <div class="pitcher-grid">
+      <div class="pitcher-card">
+        <div class="pitcher-name">Mojito Pitcher</div>
+        <div class="pitcher-price">&#8377; 1,899</div>
+      </div>
+      <div class="pitcher-card">
+        <div class="pitcher-name">Cocktail Pitcher</div>
+        <div class="pitcher-price">&#8377; 1,899</div>
+      </div>
+      <div class="pitcher-card">
+        <div class="pitcher-name">Long Island Ice Tea Pitcher</div>
+        <div class="pitcher-price">&#8377; 2,999</div>
+      </div>
+      <div class="pitcher-card">
+        <div class="pitcher-name">Brain Damage Pitcher</div>
+        <div class="pitcher-price">&#8377; 2,999</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHOOTERS -->
+  <div class="cat-section" id="shooters">
+    <div class="cat-title">Shooters</div>
+    <div class="two-col">
+      <div>
+        <table class="menu-table">
+          <tr><td>Kamikaze</td><td>&#8377; 449</td></tr>
+          <tr><td>B52</td><td>&#8377; 449</td></tr>
+          <tr><td>Jageer Bomb</td><td>&#8377; 599</td></tr>
+          <tr><td>Milan Mist</td><td>&#8377; 449</td></tr>
+        </table>
+      </div>
+      <div>
+        <table class="menu-table">
+          <tr><td>Doo-Doo</td><td>&#8377; 399</td></tr>
+          <tr><td>Tequila Shot</td><td>&#8377; 399</td></tr>
+          <tr><td>Tequila Sunrise</td><td>&#8377; 599</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEER -->
+  <div class="cat-section" id="beer-domestic">
+    <div class="cat-title">Beer</div>
+    <p class="sub-title">Domestic</p>
+    <div class="two-col">
+      <div>
+        <table class="menu-table">
+          <tr><td>British Empire Lager TIN</td><td>&#8377; 300</td></tr>
+          <tr><td>Kingfisher Lager 650ml</td><td>&#8377; 350</td></tr>
+          <tr><td>British Empire Strong 650ml</td><td>&#8377; 350</td></tr>
+          <tr><td>Kingfisher Strong 650ml</td><td>&#8377; 350</td></tr>
+          <tr><td>Kingfisher Blue 650ml</td><td>&#8377; 350</td></tr>
+        </table>
+      </div>
+      <div>
+        <table class="menu-table">
+          <tr><td>Tuborg Strong 650ml</td><td>&#8377; 350</td></tr>
+          <tr><td>Sterren Strong 650ml</td><td>&#8377; 350</td></tr>
+          <tr><td>Foster Strong 650ml</td><td>&#8377; 350</td></tr>
+          <tr><td>Amstel Strong 650ml</td><td>&#8377; 370</td></tr>
+        </table>
+      </div>
+    </div>
+    <p class="sub-title">Imported</p>
+    <div class="two-col">
+      <div>
+        <table class="menu-table">
+          <tr><td>Budwiser Lager Tin</td><td>&#8377; 500</td></tr>
+          <tr><td>Budwiser Magnum Strong Tin</td><td>&#8377; 550</td></tr>
+          <tr><td>Hopper Pint</td><td>&#8377; 450</td></tr>
+          <tr><td>Hopper Tin</td><td>&#8377; 500</td></tr>
+          <tr><td>Heineken Pint</td><td>&#8377; 450</td></tr>
+          <tr><td>Corona Pint</td><td>&#8377; 450</td></tr>
+        </table>
+      </div>
+      <div>
+        <table class="menu-table">
+          <tr><td>Taiwan Lager Tin</td><td>&#8377; 500</td></tr>
+          <tr><td>Singha Pint</td><td>&#8377; 450</td></tr>
+          <tr><td>Ho Gaarden Pint</td><td>&#8377; 450</td></tr>
+          <tr><td>Tiger Pint</td><td>&#8377; 500</td></tr>
+          <tr><td>Camel Tin</td><td>&#8377; 500</td></tr>
+          <tr><td>Abest Tin</td><td>&#8377; 500</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHISKY -->
+  <div class="cat-section" id="whisky">
+    <div class="cat-title">Whisky</div>
+    <p class="sub-title">Domestic</p>
+    <div class="two-col">
+      <div>
+        <table class="menu-table">
+          <tr><td>Signature</td><td>&#8377; 199</td></tr>
+          <tr><td>Royal Challenge</td><td>&#8377; 199</td></tr>
+          <tr><td>Antiquity</td><td>&#8377; 219</td></tr>
+        </table>
+      </div>
+      <div>
+        <table class="menu-table">
+          <tr><td>100 Pipers</td><td>&#8377; 299</td></tr>
+          <tr><td>Blender's Pride</td><td>&#8377; 244</td></tr>
+          <tr><td>Directors Special</td><td>&#8377; 249</td></tr>
+        </table>
+      </div>
+    </div>
+    <p class="sub-title">Imported &amp; Premium</p>
+    <div class="two-col">
+      <div>
+        <table class="menu-table">
+          <tr><td>Baileys</td><td>&#8377; 299</td></tr>
+          <tr><td>Grants</td><td>&#8377; 299</td></tr>
+          <tr><td>Ballentines</td><td>&#8377; 349</td></tr>
+          <tr><td>Dewars White</td><td>&#8377; 299</td></tr>
+          <tr><td>Teachers</td><td>&#8377; 349</td></tr>
+          <tr><td>Jim Beam</td><td>&#8377; 349</td></tr>
+          <tr><td>Jim Beam Honey</td><td>&#8377; 429</td></tr>
+          <tr><td>Red Label</td><td>&#8377; 299</td></tr>
+          <tr><td>VAT 69</td><td>&#8377; 299</td></tr>
+          <tr><td>Jameson</td><td>&#8377; 349</td></tr>
+          <tr><td>Black Label</td><td>&#8377; 399</td></tr>
+          <tr><td>Black &amp; White</td><td>&#8377; 399</td></tr>
+        </table>
+      </div>
+      <div>
+        <table class="menu-table">
+          <tr><td>Light House</td><td>&#8377; 399</td></tr>
+          <tr><td>John Barr</td><td>&#8377; 399</td></tr>
+          <tr><td>Tamer Lane</td><td>&#8377; 399</td></tr>
+          <tr><td>Chivas Regal</td><td>&#8377; 399</td></tr>
+          <tr><td>Jack Daniels</td><td>&#8377; 399</td></tr>
+          <tr><td>Jack Daniels Honey</td><td>&#8377; 419</td></tr>
+          <tr><td>Double Black</td><td>&#8377; 429</td></tr>
+          <tr><td>Talisker</td><td>&#8377; 499</td></tr>
+          <tr><td>Glenfiddich 12 Years</td><td>&#8377; 499</td></tr>
+          <tr><td>Glenlivet 12 Years</td><td>&#8377; 499</td></tr>
+          <tr><td>Glenmorangie</td><td>&#8377; 549</td></tr>
+          <tr><td>Laphroaig</td><td>&#8377; 549</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- BRANDY -->
+  <div class="cat-section" id="brandy">
+    <div class="cat-title">Brandy</div>
+    <div class="two-col">
+      <div>
+        <table class="menu-table">
+          <tr><td>Hobson</td><td>&#8377; 175</td></tr>
+          <tr><td>Morpheus</td><td>&#8377; 175</td></tr>
+          <tr><td>Bols</td><td>&#8377; 175</td></tr>
+          <tr><td>King Louis</td><td>&#8377; 175</td></tr>
+        </table>
+      </div>
+      <div>
+        <table class="menu-table">
+          <tr><td>1848</td><td>&#8377; 175</td></tr>
+          <tr><td>Mansion House</td><td>&#8377; 175</td></tr>
+          <tr><td>Napoleon XO</td><td>&#8377; 300</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- VODKA -->
+  <div class="cat-section" id="vodka">
+    <div class="cat-title">Vodka</div>
+    <div class="two-col">
+      <div>
+        <table class="menu-table">
+          <tr><td>Eristoff</td><td>&#8377; 175</td></tr>
+          <tr><td>MGM</td><td>&#8377; 175</td></tr>
+          <tr><td>Juno</td><td>&#8377; 175</td></tr>
+          <tr><td>Magic Moment</td><td>&#8377; 175</td></tr>
+          <tr><td>Smirnoff</td><td>&#8377; 299</td></tr>
+        </table>
+      </div>
+      <div>
+        <table class="menu-table">
+          <tr><td>Absolute Blue</td><td>&#8377; 349</td></tr>
+          <tr><td>Grey Goose</td><td>&#8377; 429</td></tr>
+          <tr><td>Belvedere</td><td>&#8377; 429</td></tr>
+          <tr><td>Ciroc</td><td>&#8377; 349</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- GIN -->
+  <div class="cat-section" id="gin">
+    <div class="cat-title">Gin</div>
+    <table class="menu-table" style="max-width:400px">
+      <tr><td>Hichki</td><td>&#8377; 175</td></tr>
+      <tr><td>Bombay Sapphire</td><td>&#8377; 349</td></tr>
+      <tr><td>Beefeater</td><td>&#8377; 349</td></tr>
+    </table>
+  </div>
+
+  <!-- RUM -->
+  <div class="cat-section" id="rum">
+    <div class="cat-title">Rum</div>
+    <table class="menu-table" style="max-width:400px">
+      <tr><td>Old Monk</td><td>&#8377; 175</td></tr>
+      <tr><td>Bacardi Lemon</td><td>&#8377; 175</td></tr>
+      <tr><td>Bacardi White</td><td>&#8377; 175</td></tr>
+      <tr><td>Bacardi Black</td><td>&#8377; 175</td></tr>
+    </table>
+  </div>
+
+  <!-- WINE -->
+  <div class="cat-section" id="wine">
+    <div class="cat-title">Wine</div>
+    <table class="menu-table" style="max-width:600px">
+      <thead><tr><td style="font-size:10px;letter-spacing:1px;color:var(--soft);text-transform:uppercase">Label</td><td style="text-align:right;font-size:10px;letter-spacing:1px;color:var(--soft);text-transform:uppercase">Glass</td><td style="text-align:right;font-size:10px;letter-spacing:1px;color:var(--soft);text-transform:uppercase">Bottle</td></tr></thead>
+      <tr><td>Jinro 24 Soju Wine</td><td></td><td>&#8377; 1,299</td></tr>
+      <tr><td>Jacob Creek</td><td>&#8377; 800</td><td>&#8377; 3,900</td></tr>
+      <tr><td>Senorita</td><td>&#8377; 800</td><td>&#8377; 3,900</td></tr>
+      <tr><td>Camas</td><td>&#8377; 800</td><td>&#8377; 3,900</td></tr>
+      <tr><td>Sula</td><td>&#8377; 700</td><td>&#8377; 3,500</td></tr>
+    </table>
+  </div>
+
+  <!-- MIXERS -->
+  <div class="cat-section" id="mixers">
+    <div class="cat-title">Mixers &amp; Soft Drinks</div>
+    <div class="two-col">
+      <div>
+        <table class="menu-table">
+          <tr><td>Water Bottle</td><td>&#8377; 40</td></tr>
+          <tr><td>Diet Coke</td><td>&#8377; 180</td></tr>
+          <tr><td>Coke</td><td>&#8377; 180</td></tr>
+          <tr><td>Sprite</td><td>&#8377; 180</td></tr>
+        </table>
+      </div>
+      <div>
+        <table class="menu-table">
+          <tr><td>Soda</td><td>&#8377; 180</td></tr>
+          <tr><td>Red Bull</td><td>&#8377; 250</td></tr>
+          <tr><td>Fresh Juice</td><td>&#8377; 180</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOBACCO -->
+  <div class="cat-section" id="tobacco">
+    <div class="cat-title">Tobacco</div>
+    <table class="menu-table" style="max-width:400px">
+      <tr><td>Kings &amp; Kings Lights</td><td>&#8377; 350</td></tr>
+      <tr><td>Classic Milds</td><td>&#8377; &mdash;</td></tr>
+      <tr><td>Benson &amp; Hedges</td><td>&#8377; 500</td></tr>
+    </table>
+  </div>
+
+</div><!-- end menu-body -->
+
+<div class="disclaimer">
+  <strong>Kings Recreation Club &middot; Zephyr Bar &amp; Kitchen</strong><br/>
+  Shop No. 15A &amp; 15B, HRB Building (South), Hiranandani Parks, Oragadam, Chengalpattu &ndash; 603204<br/>
+  Contact: <a href="tel:+919710033374" style="color:rgba(255,255,255,0.7)">+91 97100 33374</a> &middot; @zephyr.off<br/><br/>
+  Consumption &amp; trafficking of narcotic drugs &amp; psychotropic substances is prohibited by law. 18+ only. Drink responsibly.
+</div>
+
+<script>
+// Highlight active category nav link on scroll
+const sections = document.querySelectorAll('.cat-section')
+const catLinks = document.querySelectorAll('.cat-nav a')
+window.addEventListener('scroll', () => {
+  let current = ''
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 150) current = s.id
+  })
+  catLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current)
+  })
+})
+</script>
+</body>
+</html>
