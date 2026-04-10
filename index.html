@@ -168,11 +168,12 @@ section{padding:5rem 5%}
 #gallery{background:#fff}
 .gallery-header{text-align:center;max-width:600px;margin:0 auto 3rem}
 .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto;gap:1rem;max-width:1100px;margin:0 auto}
-.g-item{border-radius:14px;overflow:hidden;background:linear-gradient(145deg,var(--rose-light),rgba(237,147,177,0.25));display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .3s;position:relative}
-.g-item::after{content:'View';position:absolute;inset:0;background:rgba(72,21,40,0.5);display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;letter-spacing:2px;opacity:0;transition:opacity .3s}
+.g-item{border-radius:14px;overflow:hidden;background:linear-gradient(145deg,var(--rose-light),rgba(237,147,177,0.25));cursor:pointer;transition:transform .3s;position:relative}
 .g-item:hover{transform:scale(1.02)}
 .g-item:hover::after{opacity:1}
-.g-item p{font-size:10px;color:var(--rose-mid);letter-spacing:2px;text-transform:uppercase;opacity:.5}
+.g-item::after{content:'';position:absolute;inset:0;background:rgba(72,21,40,0.35);opacity:0;transition:opacity .3s;pointer-events:none}
+.g-label{position:absolute;bottom:0;left:0;right:0;padding:.6rem .9rem;background:linear-gradient(0deg,rgba(72,21,40,0.85) 0%,transparent 100%);color:#fff;font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:0;transition:opacity .3s;pointer-events:none}
+.g-item:hover .g-label{opacity:1}
 .g-tall{grid-row:span 2}
 .g-wide{grid-column:span 2}
 .g1{height:200px}.g2{height:200px}.g3{height:420px}.g4{height:200px}.g5{height:200px}.g6{height:200px}.g7{height:200px}
@@ -532,31 +533,31 @@ footer{background:var(--rose-deep);color:rgba(255,255,255,0.7);padding:3rem 5% 1
   <div class="gallery-grid">
     <div class="g-item g1 g-wide fade-in" onclick="location.href='gallery.html'" title="Exterior">
       <img src="assets/images/exterior-night.jpg" alt="Zephyr Bar exterior night" style="width:100%;height:100%;object-fit:cover"/>
-      <p style="position:relative;z-index:2">Exterior</p>
+      <span class="g-label">Exterior</span>
     </div>
     <div class="g-item g2 fade-in" onclick="location.href='gallery.html'" title="Bar Counter">
       <img src="assets/images/bar-counter.jpg" alt="Bar counter with spirits" style="width:100%;height:100%;object-fit:cover"/>
-      <p style="position:relative;z-index:2">Bar Counter</p>
+      <span class="g-label">Bar Counter</span>
     </div>
     <div class="g-item g3 g-tall fade-in" onclick="location.href='gallery.html'" title="Main Dining">
       <img src="assets/images/interior-full.jpg" alt="Dining hall with mural" style="width:100%;height:100%;object-fit:cover"/>
-      <p style="position:relative;z-index:2">Dining Hall</p>
+      <span class="g-label">Dining Hall</span>
     </div>
     <div class="g-item g4 fade-in" onclick="location.href='gallery.html'" title="Bar Seating">
       <img src="assets/images/interior-mural.jpg" alt="Bar seating and murals" style="width:100%;height:100%;object-fit:cover"/>
-      <p style="position:relative;z-index:2">Bar &amp; Murals</p>
+      <span class="g-label">Bar &amp; Murals</span>
     </div>
     <div class="g-item g5 fade-in" onclick="location.href='gallery.html'" title="Smoking Room">
       <img src="assets/images/Smoking Room.jpg" alt="Smoking room with Kingfisher neon" style="width:100%;height:100%;object-fit:cover"/>
-      <p style="position:relative;z-index:2">Lounge</p>
+      <span class="g-label">Lounge</span>
     </div>
     <div class="g-item g6 fade-in" onclick="location.href='gallery.html'" title="Dining Area 2">
       <img src="assets/images/dining-1.jpg" alt="Dining area" style="width:100%;height:100%;object-fit:cover"/>
-      <p style="position:relative;z-index:2">Dining Area</p>
+      <span class="g-label">Dining Area</span>
     </div>
     <div class="g-item g7 fade-in" onclick="location.href='gallery.html'" title="Entrance">
       <img src="assets/images/entrance.jpg" alt="Main entrance Kings Recreation Club" style="width:100%;height:100%;object-fit:cover"/>
-      <p style="position:relative;z-index:2">Main Entrance</p>
+      <span class="g-label">Main Entrance</span>
     </div>
   </div>
   <div style="text-align:center;margin-top:2rem">
